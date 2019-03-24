@@ -2,7 +2,7 @@
 
 
 # Minimal version of valencia function. As we compare absolute number, sum order is not important
-def valencia_min(N):
+def valencia(N):
     odd = 0
     even = 0
     for position, digit in enumerate(str(N)):
@@ -10,7 +10,20 @@ def valencia_min(N):
             even += int(digit)
         else:
             odd += int(digit)
-    return((odd-even)==0)
+    return(abs(odd-even))
 
-print("TRUE", valencia_min(111111))
-print("FALSE", valencia_min(1111111))
+# Check valencia's value of sequence of numbers
+def check_valencia(L):
+    max_val = [0, 0]    # store valencia and number
+    for number in L:
+        x = valencia(number)
+        if x==0:
+            return number
+        else:   # if higher val, store valencia + number
+            if x>max_val[0]:
+                max_val = [x, number]
+    return max_val
+
+seq = [15742, 15743, 15744, 15745]
+
+print(check_valencia(seq))
