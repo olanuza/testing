@@ -92,5 +92,21 @@ print(primeDivisors(45678))
 
 # ex 9
 
+def check_increasing(num, i):
+    if len(num)>(i):     # final condition
+        if (int(num[i-1])<int(num[i])):     # if increasing, check next
+            return check_increasing(num, i+1)
+        else:       # if any is not increasing, return false
+            return False
+    else:       # if all increasing
+        return True
+
 def is_increasing(L):
-    return 0
+    bool_list = []
+    for item in L:
+        parsed = list(str(item))
+        print(len(parsed))
+        bool_list.append(check_increasing(parsed,1))    # init recursive function
+    return bool_list
+
+print((is_increasing([123,123451,1,4321,234])))

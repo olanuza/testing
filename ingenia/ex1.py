@@ -14,16 +14,18 @@ def valencia(N):
 
 # Check valencia's value of sequence of numbers
 def check_valencia(L):
-    max_val = [0, 0]    # store valencia and number
+    max_val = 0    # store valencia
     for number in L:
         x = valencia(number)
         if x==0:
             return number
-        else:   # if higher val, store valencia + number
-            if x>max_val[0]:
-                max_val = [x, number]
+        else:   # if higher val, store valencia
+            if x>max_val:
+                max_val = x
     return max_val
 
-seq = [15742, 15743, 15744, 15745]
+seq1 = [15742, 15743, 1111, 15744, 2222, 15745]
+seq2 = [15742, 15743, 15744, 15745]
 
-print(check_valencia(seq))
+print(check_valencia(seq1))
+print(check_valencia(seq2))

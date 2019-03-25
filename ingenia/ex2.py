@@ -26,7 +26,7 @@ class Example(QWidget):
         self.stopbtn.clicked.connect(self.pushStop)
         
         self.setGeometry(300, 300, 430, 170)
-        self.setWindowTitle('Exercici 2')
+        self.setWindowTitle('This is a 5s timer. Press stop to abort')
         self.show()
         
         
