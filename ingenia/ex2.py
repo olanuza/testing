@@ -1,7 +1,6 @@
 #Exercise 2
 
-from PyQt5.QtWidgets import (QWidget, QProgressBar, 
-    QPushButton, QApplication)
+from PyQt5.QtWidgets import (QWidget, QProgressBar, QPushButton, QApplication)
 from PyQt5.QtCore import QBasicTimer
 import sys
 
