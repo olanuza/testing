@@ -1,9 +1,37 @@
-# Testing requests
+# -*- coding: utf-8 -*-
+"""Mastermind Verse Test - Testing requests"""
 
-from requests import put, get
+__author__ = 'Oriol Lanuza Fisas'
+__email__ = 'oriol@lanuza.eu'
+__copyright__ = 'Copyright © 2019, Oriol Lanuza Fisas'
+__license__ = 'MIT'
 
-put('http://localhost:5000/newgame', data={'data': '["Blue","Red","Blue","Green"]'}).json()
-get('http://localhost:5000/todo1').json()
 
-put('http://localhost:5000/todo2', data={'data': 'Change my brakepads'}).json()
-get('http://localhost:5000/todo2').json()
+import requests
+
+r = requests.post('http://127.0.0.1:5000/api/newgame', json={"code": "BRBG"})
+print("STARTED")
+if r.ok:
+    print(r.json())
+else:
+    print("ERR?")
+
+r = requests.put('http://127.0.0.1:5000/api/guess', json={"guess": "BRTG"})
+print("GUESS1")
+if r.ok:
+    print(r.json())
+else:
+    print("ERR?")
+
+r = requests.put('http://127.0.0.1:5000/api/guess', json={"guess": "GRRG"})
+print("GUESS2")
+if r.ok:
+    print(r.json())
+else:
+    print("ERR?")
+r = requests.get('http://127.0.0.1:5000/api/turns')
+print("TURNS")
+if r.ok:
+    print(r.json())
+else:
+    print("ERR?")
